@@ -1,0 +1,600 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Titan+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Akaya+Telivigala&family=Concert+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Bubbles&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+
+
+
+
+
+
+
+/**------- INICIO CONFIGURACIÓN GENERAL PARA EMPEZAR ------*/
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    /*Para quitar las letras subrayadas*/
+}
+
+/*------------- Lo utilizo para definir los colores ------*/
+:root {
+    --white_color: #edf6f9;
+    --white_color2: #ffffff;
+    --pink_color: #e2b3c5;
+    --pink_color2: #e0a2bb;
+    --blue_color: #84cee3;
+    --purple_color: #7e7eaf;
+    --purple_color2: #ab83ba;
+    --purple_color3: #b8b8e9;
+    --darkBlue_color: #319aca;
+    --darkBlue_color2: #3a80d1;
+    --darkBlue_color3: #478ddd;
+    --darkBlue_color4: #627288;
+    --yellow_color: #efda86;
+    --yellow_color2: #fce688;
+    --green_color: #5bc8ac;
+    --sombra: linear-gradient (90deg, #e2b3c5 80%, #ffffff 50%);
+}
+/**------- FIN CONFIGURACIÓN GENERAL PARA EMPEZAR ------*/
+
+
+
+/**------------- INICIO MENÚ PRINCIPAL ----------------**/
+/*Barra de color del menú*/
+.menu {
+  background-color: var(--pink_color);
+  color: var(--white_color2);
+  font-family: 'Noto Sans JP', sans-serif;
+  height: 45px;
+  position: fixed;
+  width: 100%;
+  z-index: 5;
+  box-shadow: var(--purple_color2) 0px 2px 10px -1px;
+}
+
+/*Alinea y posiciona el menú de navegación a la derecha*/
+.menu__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  max-width: 1880px;
+  height: 100%;
+  margin: 0 auto;
+}
+
+/*ordena horizontalmente el menú de navegación*/
+.menu__links {
+  height: 100%;
+  transition: transform .5s;
+  display: flex;
+}
+
+/*Oculta las listas del menú de navegación*/
+.menu__item {
+  list-style: none;
+  position: relative;
+  height: 100%;
+  /* custom property para ocultar el item */
+  --clip: polygon(0 0, 100% 0, 100% 0, 0 0);
+  --transform: rotate(-90deg);
+}
+
+/*Aparecen las listas del menú de navegación con el hover*/
+.menu__item:hover {
+  /* mostrar el item */
+  --clip: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  --transform: rotate(0);
+}
+
+/*Propiedades del menú de navegación*/
+.menu__link {
+    color: var(--white_color2);
+    text-decoration: none;
+    padding: 0 30px;
+    display: flex;
+    height: 100%;
+    align-items: center;
+    padding: 3px 50px 10px 8px;
+}
+
+/*Cambio de color en las secciones del submenú*/
+.menu__link:hover {
+  background-color: var(--pink_color2);
+}
+
+/*Movimiento de las flechas en las secciones del submenú*/
+.menu_flecha {
+  transform: var(--transform);
+  transition: .3s;
+  display: block;
+}
+
+/* ----- SUBMENUS VISTA ESCRITORIO ------ */
+
+.sub__menu {
+  list-style: none;
+  clip-path: var(--clip);
+  /* custom property, se declara variable para usar la custom property */
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: max-content;
+  transform: translateY(100%);
+  background-color: var(--purple_color);
+}
+
+
+/*----------- ICONO HAMBURGUESA MENU -------------*/
+#icon__label i {
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.fa-bars:hover {
+  color: var(--purple_color);
+}
+
+
+/**------------- FIN MENÚ PRINCIPAL ----------------**/
+
+
+
+
+
+
+
+
+/**------------- INICIO BARRA INTRODUCCIÓN ----------------**/
+
+/* INTRODUCION */
+.intro__fondo{
+  background-color: var(--darkBlue_color2);
+}
+
+.img__fondo {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: 0%;
+    padding: 0px;
+}
+
+/* PROPIEDADES BARRA/FLECHA INTRODUCCIÓN */
+
+
+.intro__text {
+    /* ancho de la pagina */
+    max-width: auto;
+    box-shadow: var(--darkBlue_color3) 0px 1px 8px -1px;
+    border-radius: 0px;
+    overflow: hidden;
+    font-family: 'Noto Sans JP', sans-serif;
+    background-color: var(--blue_color);
+}
+
+.label__flecha i{
+  color: var(--white_color2);
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+  padding: 5px;
+  transform: rotate(180deg);
+}
+
+.label__flecha, .contenido__intro {
+  padding: 5px 20px;
+  text-align: center;
+}
+
+
+.label__flecha {
+    display: block;
+    cursor: pointer;
+    position: relative;
+    transition: background 0.1s;
+}
+
+.label__flecha:hover {
+    background: var(--pink_color);
+}
+
+.label__flecha::after {
+    content: "";
+    position: absolute;
+    transform: translateY(-50%);
+    background-size: contain;
+    transition: 0.4s;
+    text-align: center;
+}
+
+.icon_flecha1 {
+  display: none;
+}
+
+.icon_flecha {
+  color: #ffffff;
+}
+
+.icon_flecha1:checked~.contenido__intro {
+  display: block;
+}
+
+.icon_flecha1:checked~.label__flecha {
+  transform: translateY(-10%) rotate(0.5turn);
+}
+
+.contenido__intro {
+    background-color: var(--white_color2);
+    color: var(--darkBlue_color3);
+    line-height: 1.6;
+    font-size: 0.85em;
+    display: none;
+}
+
+/* p{
+    font-size: 25px;
+    text-align:right;
+    padding: 40px;
+    z-index: 3;
+    position: relative;
+    color: var(--yellow_color2);
+    text-shadow: 3px 0px 3px var(--darkBlue_color4);
+    top: -300px;
+    font-family: 'Titan One', cursive;
+} */
+
+
+
+/**------------- FIN BARRA INTRODUCCIÓN ----------------**/
+
+
+
+
+
+
+/**------------------- INICIO DATOS / ESTADISTICA ---------------*/
+
+.contenedor-score {
+  width: 100%;
+  max-width: 1400px;
+  z-index: 4;
+  margin: auto;
+  padding-top: 30px;
+  position: relative;
+}
+.tarjetas-score {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+div .textos_score h2 {
+  /*------Titulo y el año--------*/
+  /* font-family: 'Fredoka One', cursiva; */
+  font-family: 'Righteous', cursive;
+  font-size: 15px;
+  text-align: center;
+  padding: 3px 10px 5px 4px;
+}
+
+/**------------------- FIN DATOS / ESTADISTICA ---------------*/
+
+
+
+
+
+
+
+/**------------------- INICIO PORTADAS PELICULAS ---------------*/
+
+.contenedor-pelis {
+  width: 100%;
+  max-width: 1400px;
+  z-index: 4;
+  margin: auto;
+  padding-top: 30px;
+  position: relative;
+}
+
+
+.tarjetas {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+}
+
+.portada img {
+  /*div del main JavaScript*/
+  width: 100%;
+  height: 75%;
+  border-radius: 10px 10px 0 0;
+}
+
+/* .portada:hover {
+background: var(--pink_color);
+opacity: 0.5;
+transform: translateY(-3%);
+} */
+
+.portada {
+  /*div del main JavaScript*/
+  border-radius: 10px;
+  width: 280px;
+  height: 470px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  color: var(--darkBlue_color2);
+  background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+  box-shadow: 0px 0px 10px var(--darkBlue_color4);
+  /*overflow: hidden; Ocultar un poco el texto de la descripcion mientras arreglamos el resto */
+  /* cursor: pointer; */
+  z-index: 4;
+}
+
+div .textos_portada h2 {
+  /*------Titulo y el año--------*/
+  /* font-family: 'Fredoka One', cursiva; */
+  font-family: 'Righteous', cursive;
+  font-size: 15px;
+  text-align: center;
+  padding: 3px 10px 5px 4px;
+}
+
+div .textos_portada p {
+  /*------Titulo y el año--------*/
+  /* font-family: 'Fredoka One', cursiva; */
+  font-family: 'Righteous', cursive;
+  font-size: 20px;
+  text-align: center;
+  padding-bottom: 2px;
+}
+
+/*---------- MODAL - TARJETAS PELICULAS ---------------*/
+/* .modal{
+  display: block;
+  width: 100%;
+  height: 100%;
+  z-index: 7;
+  overflow: scroll;
+  background: var(--blue_color);
+  top: 0;
+  left: 0;
+  position: fixed;
+  background: rgba(7, 7, 7, 0.01);
+}
+
+.boton_modal{
+  width: 50%0;
+  height: 50%;
+  background: var(--purple_color);
+  margin: auto;
+}
+
+.close{
+  width: 20px;
+  height: 20px;
+  background: var(--pink_color2);
+  border-radius: 10px;
+  border: none;
+  color: var(--white_color2);
+  font-size: 10px;
+} */
+
+/*---------- Botón Modal - Tarjetas Peliculas ---------------*/
+
+#boton_id{
+  justify-content: center;
+  display: flex;
+  background-color: var(--white_color2);
+  border-radius: 80px;
+  display: inline-block;
+  margin-left: 125px;
+  box-shadow: 0px 0px 8px var(--purple_color);
+  margin-top: -50px;
+  font-family: 'Concert One', cursive;
+  font-size: 25px;
+  color: var(--purple_color);
+  padding: 2px 10px;
+  border: none;
+  cursor: pointer;
+}
+/*------------- Hover Modal --------------*/
+#boton_id:hover {
+  background-color: var(--darkBlue_color3);
+  /* opacity: 0.8; */
+  transform: scale(1.0);
+  /* transform: translateY(-3%); */
+}
+
+#boton_id:hover{
+  color: var(--white_color2);
+}
+
+/*--------- Botón UP Contenedor -------------*/
+
+.contenedor_boton_top{
+  position: fixed;
+  bottom: 5px;
+  right: 18px;
+  width: 18px;
+  z-index: -10px;
+}
+
+.boton_top{
+  width: 0px;
+  height: 0px;
+  background: var(--darkBlue_color);
+  box-shadow: 0px 0px 8px var(--purple_color);
+  border-radius: 60%;
+  cursor: pointer;
+  transition: .2s;
+  top: 30%;
+  left: 30%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
+
+.boton_top i{
+  position: absolute;
+  font-size: 20px;
+  top: 48%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  color: var(--white_color2);
+  transition: .2s;
+}
+
+.show{
+  z-index: 10;
+}
+
+.show .boton_top{
+  animation: popup .3s ease-in-out;
+  width: 40px;
+  height: 40px;
+  z-index: 11;
+}
+
+.show i{
+  transform: translate(-50%, -50%) scale(1);
+}
+
+@keyframes popup{
+  0%{
+    width: 0px;
+    height: 0px;
+  }
+
+  50%{
+    width: 50px;
+    height: 50px;
+  }
+
+  100%{
+    width: 40px;
+    height: 40px;
+  }
+}
+
+/**------------------- FIN PORTADAS PELICULAS ---------------*/
+
+
+footer {
+  background-color: #E0A2BB;
+  color: white;
+  border-color: #319aca;
+  font-family: 'Noto Sans JP', sans-serif;
+  text-align: center;
+  padding: 14px;
+  /*padding-bottom: 0px !important; */
+  /* position: fixed; */
+  /* position: relative; */
+  left: 0;
+  right: 0;
+  z-index: 1;
+  height: 50px;
+  /* position: static; */
+  width: 100%;
+  align-self: flex-end;
+}
+
+
+
+
+
+/**------------- INICIO ELEMENTOS RESPONSIVOS ----------------**/
+
+.icon_img {
+    display: none;
+}
+
+#icon__label {
+    display: none;
+}
+
+#menu__movil {
+    display: none;
+}
+
+/* RESPONSIVE : VISTA DINAMICA PARA OTROS DISPOSITIVOS */
+
+@media (max-width: 800px) {
+
+    .menu {
+        height: 30px;
+    }
+
+    .footer{
+      height: 50px;
+      padding-bottom: 6px;
+    }
+
+    .footer p{
+      padding-bottom: 6px;
+      position:relative;
+    }
+
+    .menu__container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 90%;
+        max-width: 1880px;
+        height: 100%;
+        margin: 0 auto;
+    }
+
+    .menu__links {
+        background-color: var(--purple_color);
+        display: grid;
+        grid-auto-rows: max-content;
+        flex-direction: column;
+        position: fixed;
+        right: 0;
+        top: 29px;
+        height: 35%;
+        visibility: hidden;
+        border-bottom-left-radius: 20px;
+    }
+
+    .menu__link {
+        padding: 15px 15px;
+        padding-left: 10px;
+        display: flex;
+        height: auto;
+    }
+
+    .sub__menu {
+        display: grid;
+        right: 130px;
+        bottom: 23px;
+    }
+
+    #icon__label {
+        display: block;
+    }
+
+    .icon_img {
+        display: flex;
+    }
+
+    /* Se utiliza el elemento ul el cual contiene el menú principal */
+
+    #menu__movil:checked~ul {
+        visibility: visible;
+    }
+}
+
+/**------------- FIN ELEMENTOS RESPONSIVOS ----------------**/
+
+
